@@ -1,0 +1,6 @@
+<ul>
+  <li  routerLinkActive = " active" ><a routerLink="/orders"><i class="bx bx-home"></i> <span>Home</span></a></li>
+  <li routerLinkActive = " active" *ngFor="let temp of categoryArr">
+      <a routerLink="/category/id/{{temp.id}}"><i class="{{temp.logo}}"></i> <span>{{temp.categoryName}}</span></a>
+  </li>
+</ul>

@@ -1,0 +1,13 @@
+<div class = "row">
+    <div class = "oneOrder">
+        <div class = "myCard order-item">
+<img src="../../../assets/img/{{order.image}}.jpg" alt="order image" style="width: 100%;">
+    <h1>{{order.orderName}}</h1>
+    <h3>{{order.description}}</h3>
+    <p class="price">{{order.price}}</p>
+    <button (click)="addToCart(order)" class="btn-primary">Add to cart</button>
+        </div>
+    
+    </div>
+
+</div>

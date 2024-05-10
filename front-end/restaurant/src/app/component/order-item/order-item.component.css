@@ -1,0 +1,26 @@
+.col-md-9.pag {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+    justify-content: space-between; /* Distribute space evenly between the items */
+    margin-top: 20px;
+  }
+  
+  .ngb-pagination,
+  .sel {
+    display: flex;
+    align-items: center;
+    background-color: #eeebeb;
+    padding: 2px;
+    font-size: 12px;
+    
+  }
+  
+  /* Style the select element */
+  .sel select {
+    margin-left: 10px; /* Add some spacing between the pagination and select */
+    padding: 5px;
+    border: 1px solid #eeebeb;
+    font-size: 12px;
+  }
+
+  
