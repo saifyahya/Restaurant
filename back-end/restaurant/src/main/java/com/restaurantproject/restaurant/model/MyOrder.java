@@ -15,8 +15,7 @@ public class MyOrder extends BaseEntity{
     private String orderName;
     @Column(name = "image")
     private String image;
-    @Column(name = "description")
-    @Lob
+    @Column(name = "description",columnDefinition = "TEXT")
     private String description;
     @Column(name = "price")
     private int price;

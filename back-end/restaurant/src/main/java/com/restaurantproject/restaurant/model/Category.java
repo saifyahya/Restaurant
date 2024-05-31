@@ -20,7 +20,6 @@ public class Category extends BaseEntity{
     private String logo ;
 
     @OneToMany(mappedBy = "category")
-
    private Set<MyOrder> orders ;
 
 
