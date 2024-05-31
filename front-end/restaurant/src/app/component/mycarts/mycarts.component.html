@@ -1,0 +1,18 @@
+<!-- app.component.html -->
+<div class="mycarts-cards-container">
+  <div *ngFor="let cart of userCart" class="mycarts-card">
+    <div class="card-body">
+      <p class="mycarts-card-text">
+        Order date: {{ cart.updatedDate.split('T')[0] }} -
+        <span>{{ cart.updatedDate.split('T')[1].split('+')[0].split('.')[0] }}</span>
+      </p>
+      <h5 class="mycarts-card-title">Status: {{ cart.status }}</h5>
+      <p class="mycarts-card-text">Code: {{ cart.code }}</p>
+      <p class="mycarts-card-text">Items: {{ cart.quantity }}</p>
+      <p class="mycarts-card-text">Price: {{ cart.price }}</p>
+      <button (click)="deleteCart(cart.code)">Delete</button>
+    </div>
+  </div>
+  
+</div>
+

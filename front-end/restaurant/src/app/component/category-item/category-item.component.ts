@@ -23,7 +23,7 @@ constructor(private service: CategoryServiceService){}
 this.service.getAllCategories().subscribe(
   
   data=>{this.categoryArr=data
-data.forEach(data=>console.log(data))
+// data.forEach(data=>console.log(data))
 
   },
 error=>{

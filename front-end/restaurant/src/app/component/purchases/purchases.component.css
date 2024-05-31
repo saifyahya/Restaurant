@@ -1,0 +1,61 @@
+.buyingorder{
+    margin-left: 135px;
+}
+span{
+    margin: 0 98px;
+}
+i
+{
+background-color: #149ddd;
+padding: 3px;
+color: white;
+cursor: pointer;
+}
+.totprice{
+    position: absolute;
+    padding: 10px;
+    color: white;
+background-color: #149ddd;
+font-size: 20px;
+}
+.tot2{
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    color: white;
+background-color: #149ddd;
+font-size: 20px;
+}
+.checkout {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 200px;
+  }
+  
+  .size {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .totalPrice {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

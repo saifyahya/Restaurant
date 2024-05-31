@@ -52,7 +52,7 @@ this.getOrderBYCatId();
 this.order_service.getOrdersCount().subscribe(data=>{
   this.allRecords=data;})
 
-    this.order_service.getAllOrders(this.page-1,this.pageSize).subscribe(data => {
+    this.order_service.getAllOrders(this.page===0?0:this.page-1,this.pageSize).subscribe(data => {
       this.orders = data;
       this.orders.forEach(data=>console.log(data))
     });

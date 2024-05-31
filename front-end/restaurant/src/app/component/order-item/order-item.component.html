@@ -8,7 +8,6 @@
         <p class="dis">{{temp.description}}</p>
         <button class="btn btn-primary" (click)="addToCart(temp)">Add to Cart</button>
       </div>
-      <h1 [innerHTML]="saif"></h1>
   </div>
 
   <div class="col-md-9 pag" style="padding-left: 30%;">
@@ -30,4 +29,5 @@
 </div>
 </div>
 
-  
+<div *ngIf="orders?.length==0" class="alert alert-danger">
+   No Orders Found</div>
