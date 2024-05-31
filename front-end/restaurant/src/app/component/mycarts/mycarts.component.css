@@ -1,0 +1,55 @@
+.mycarts-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between the cards */
+    justify-content: center; /* Center the cards horizontally */
+    padding: 10px; /* Add some padding around the container */
+  }
+  
+  .mycarts-card {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.2s; /* Smooth hover effect */
+    padding: 5px; /* Add padding inside the card */
+  }
+  
+  .mycarts-card:hover {
+    transform: translateY(-10px); /* Lift the card slightly on hover */
+  }
+  
+  .mycarts-card-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .mycarts-card-text {
+    font-size: 10px;
+    color: #555;
+  }
+  
+  .mycarts-btn-primary {
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .mycarts-btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

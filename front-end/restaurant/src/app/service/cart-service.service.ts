@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Cart } from '../model/cart';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartServiceService {
+
+
 orders:Cart[]=[];
 totalQuantity:Subject<number>=new Subject<number>;
+totalQuantityNumber:number=0;
+totalpriceNumber:number=0;
+
 totalPrice:Subject<number>=new Subject<number>;
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   addToCart(cartOrder:Cart){
     let existingOrder= this.orders.find(order=>order.id===cartOrder.id);
     if(existingOrder!=undefined){
-    existingOrder.quantity+=cartOrder.quantity;
+    existingOrder.quantity+=1;
   }
   else {
     this.orders.push(cartOrder);
   }
   this.updateCart();
-  console.log(this.orders)
-  console.log("total quantity: ",this.totalQuantity)
-  console.log("total price: ",this.totalPrice)
-
   }
 
   updateCart(){
@@ -37,9 +40,32 @@ totalPrice:Subject<number>=new Subject<number>;
     this.totalPrice.next(totalPrice);
     this.totalQuantity.next(totalQuantity);
   }
-
+  
   removeFromCart(cartOrder:Cart){
-    this.orders = this.orders.filter(order => order.id !== cartOrder.id);  // removing the item
-    this.updateCart();
+    let existingOrder = this.orders.find(order => order.id === cartOrder.id);  
+ if(existingOrder!=undefined){
+  if(existingOrder.quantity>1){
+  existingOrder.quantity-=1;}
+  else{
+   const index=this.orders.findIndex(order=>order.id===cartOrder.id);
+   if(index>-1)
+   this.orders.splice(index,1);
+   console.log("cart details:"+this.orders);
   }
+}
+this.updateCart();
+  }
+
+  removeWholeOrderFromCart(cartOrder:Cart){
+   const index=this.orders.findIndex(order=>order.id===cartOrder.id);
+   if(index>-1)
+   this.orders.splice(index,1);
+   console.log("cart details:"+this.orders);
+this.updateCart();
+  }
+
+  getCart():Cart[]{
+    return this.orders;
+  }
+
 }
