@@ -64,12 +64,12 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 200px;
   transition: all ease-in-out 0.5s;
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: #040b14;
+  background: #f1b963;
   overflow-y: auto;
 }
 
@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: flex;
   align-items: center;
-  color: #a8a9b4;
+  color: #212431;
   padding: 12px 15px;
   margin-bottom: 8px;
   transition: 0.3s;
@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a i {
   font-size: 24px;
   padding-right: 8px;
-  color: #6f7180;
+  color: #212431;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
-  color: #149ddd;
+  color: white;
 }
 
 /* Mobile Navigation */
@@ -1044,15 +1044,16 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  padding: 15px;
-  color: #f4f6fd;
+  padding: 5px;
   font-size: 14px;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 300px;
   z-index: 9999;
-  background: #040b14;
+  background: #f1b963;
+  height: 50px;
+  width: 200px;
 }
 
 #footer .copyright {
@@ -1060,10 +1061,18 @@ section {
 }
 
 #footer .credits {
-  padding-top: 5px;
+  padding: 5px;
   text-align: center;
   font-size: 13px;
-  color: #eaebf0;
+  color: black;
+  text-align: center;
+}
+#footer .credits a{
+  text-decoration: none;
+  color:black;
+  font-family:sans-serif;
+  font-style:italic ;
+
 }
 
 @media (max-width: 1199px) {
@@ -1076,14 +1085,19 @@ section {
 /* ............................................. */
 #footer .credits
 {
-  width: 221px;
+  width: 200px;
+  text-align: center;
 }
+
+
 .mynav
 {
-  margin-left: 300px;
+  top: 0;
+  margin-left: 200px;
+  padding: auto;
 }
 .navbar-dark .navbar-brand {
-  color: #a791ff;
+  color: white;
   font-weight: bold;
   font-size: 23px;
 }
@@ -1093,12 +1107,12 @@ section {
 }
 .navbar-dark .navbar-nav .nav-link {
   font-size: 17px;
-  color: #19db5e;
+  color: #f1b963;
   font-weight: bold;
 }
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
-  margin-left: 27px;
+  margin: 10px;
   font-weight: bold;
 }
 /* my style */
@@ -1132,9 +1146,9 @@ section {
 {
   margin-top: 4px;
 }
-.btn:not(:disabled):not(.disabled) {
-  margin: 4px 0px 2px 16px !important;
-}
+/* .btn:not(:disabled):not(.disabled) {
+  margin: 4px 4px 2px 16px !important;
+} */
 .statusCard
 {
   color: white;

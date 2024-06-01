@@ -19,7 +19,7 @@ export class OrderItemComponent implements OnInit {
   orders: Order[] = [];
   page:number=0;
   allRecords=0;
-  pageSize=3;
+  pageSize=5;
   saif="saif123"
 
   constructor(private order_service: OrderServiceService, private route:ActivatedRoute,
