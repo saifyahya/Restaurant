@@ -7,7 +7,7 @@ import com.restaurantproject.restaurant.model.Cart;
 import java.util.List;
 
 public interface IPurchaseService {
-    String savePurchaseRequest(PurchaseRequestDto purchaseRequest);
+    CartDto savePurchaseRequest(PurchaseRequestDto purchaseRequest);
 
      List<CartDto> getCartsByClientEmail(String email);
 
