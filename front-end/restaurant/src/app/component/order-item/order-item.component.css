@@ -1,26 +1,31 @@
 .col-md-9.pag {
     display: flex;
     align-items: center; /* Vertically center the items */
-    justify-content: space-between; /* Distribute space evenly between the items */
+    justify-content: center; /* Distribute space evenly between the items */
     margin-top: 20px;
   }
   
-  .ngb-pagination,
-  .sel {
-    display: flex;
-    align-items: center;
-    background-color: #eeebeb;
-    padding: 2px;
-    font-size: 12px;
-    
-  }
-  
-  /* Style the select element */
-  .sel select {
-    margin-left: 10px; /* Add some spacing between the pagination and select */
-    padding: 5px;
-    border: 1px solid #eeebeb;
-    font-size: 12px;
-  }
+/* Pagination and select dropdown styling */
+.ngb-pagination,
+.sel {
+  background-color: #eeebeb;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+/* Select dropdown styling */
+.sel {
+  padding: 2px;
+  margin: 5px; /* Add some spacing between the pagination and select */
+  text-align: center;
+}
+
+/* Style the select element */
+.sel select {
+  padding: 5px;
+  border: 1px solid #eeebeb;
+  font-size: 12px;
+}
 
   

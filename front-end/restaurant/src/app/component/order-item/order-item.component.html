@@ -2,11 +2,10 @@
   <div *ngFor="let temp of orders" class="col-md-4 myorder">
       <div class="card">
         <a routerLink="/orders/{{temp.id}}">
-          <img src="../../../assets/img/{{temp.image}}.jpg" alt="food image" style="width:100%"></a>
+          <img src="../../../assets/img/{{temp.image}}.jpg" alt="food image" class="food-order-img"></a>
         <h5 class="card-title">{{temp.orderName}}</h5>
-        <p class="price">{{temp.price }}</p>
-        <p class="dis">{{temp.description}}</p>
-        <button class="btn btn-primary" (click)="addToCart(temp)">Add to Cart</button>
+        <p class="price">${{temp.price }}</p>
+        <button  style="background-color: brown; border-color:brown ;" class="btn btn-primary" (click)="addToCart(temp)">Add to Cart</button>
       </div>
   </div>
 
@@ -21,9 +20,9 @@
 
 <div class ="sel">
 <span class="mr-2">Page Size</span>
-<select (change)="onChange($event)">
+<select  (change)="onChange($event)">
 <option>2</option>
-<option>5</option>
+<option selected>5</option>
 <option>10</option>
 </select>
 </div>

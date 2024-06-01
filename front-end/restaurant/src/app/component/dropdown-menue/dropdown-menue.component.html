@@ -1,4 +1,11 @@
 
-<div *ngFor="let temp of categories" class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item"  routerLinkActive="active" routerLink="/categories/{{temp.id}}">{{temp.categoryName}}</a>
-  </div>
+      <div style="margin-left: 50px;" class="dropdown">
+        <span class="mr-2" style="color: white;"> Categories
+        </span>
+        <select (change)="categoryDropdown($event)">
+        <option *ngFor="let temp of categories" value="{{temp.id}}">{{temp.categoryName}}</option>
+        </select>
+        </div>
+
+
+        
