@@ -30,7 +30,7 @@ public class PurchaseServiceImpl implements IPurchaseService {
 
     @Override
     @Transactional
-    public String savePurchaseRequest(PurchaseRequestDto purchaseRequest) {
+    public CartDto savePurchaseRequest(PurchaseRequestDto purchaseRequest) {
         System.out.println(purchaseRequest);
         Client client = ClientMapper.toClient(purchaseRequest.getClientDto());
         Cart cart = CartMapper.toCart(purchaseRequest.getCartDto());
@@ -45,8 +45,7 @@ public class PurchaseServiceImpl implements IPurchaseService {
         cart.generateCartCode();
         client.addToCarts(cart);
         clientRepository.save(client);
-
-        return cart.getCode();
+        return CartMapper.toCartDto(cart);
 
     }
 

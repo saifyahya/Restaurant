@@ -23,11 +23,11 @@ public class PurchaseController {
     @PostMapping("/purchase")
     public ResponseEntity<PurchaseResponseDto> savePurchaseRequest(@RequestBody PurchaseRequestDto purchaseRequest){
         System.out.println("purchases"+purchaseRequest);
-        String cartCode = purchaseService.savePurchaseRequest(purchaseRequest);
+        CartDto cartDto = purchaseService.savePurchaseRequest(purchaseRequest);
         PurchaseResponseDto response = new PurchaseResponseDto();
             response.setName(purchaseRequest.getClientDto().getFullName());
-            response.setStatus(CartStatusEnum.UNPAID);
-            response.setCode(cartCode);
+            response.setStatus(cartDto.getStatus());
+            response.setCode(cartDto.getCode());
             return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 

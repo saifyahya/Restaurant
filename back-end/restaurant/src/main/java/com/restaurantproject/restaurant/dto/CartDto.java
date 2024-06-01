@@ -25,4 +25,5 @@ public class CartDto {
     private AddressDto toAddressDto;
     private AddressDto fromAddressDto;
     private Date updatedDate;
+
 }
