@@ -2,6 +2,7 @@ package com.restaurantproject.restaurant.configuration;
 
 import com.restaurantproject.restaurant.model.Category;
 import com.restaurantproject.restaurant.model.MyOrder;
+import com.restaurantproject.restaurant.model.authentication.User;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
@@ -12,6 +13,7 @@ public class RestConfiguration implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
 disableRestApis(MyOrder.class,config);
         disableRestApis(Category.class,config);
+        disableRestApis(User.class,config);
     }
 
     private void disableRestApis(Class theClass, RepositoryRestConfiguration config){

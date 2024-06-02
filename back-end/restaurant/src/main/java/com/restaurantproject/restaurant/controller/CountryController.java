@@ -2,12 +2,12 @@ package com.restaurantproject.restaurant.controller;
 
 import com.restaurantproject.restaurant.model.Country;
 import com.restaurantproject.restaurant.service.ICountryService;
+import com.restaurantproject.restaurant.service.jasperreport.JasperReportService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import net.sf.jasperreports.engine.JRException;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -16,8 +16,15 @@ import java.util.List;
 @AllArgsConstructor
 public class CountryController {
     private ICountryService countryService;
+
+    private JasperReportService jasperReportService;
     @GetMapping("/countries")
     public List<Country> getAllCountries(){
         return countryService.getAllCountries();
+    }
+
+    @GetMapping("/countries/{format}")
+    public String generateReport(@PathVariable String format) throws JRException, FileNotFoundException {
+        return jasperReportService.formatReport(format);
     }
 }
