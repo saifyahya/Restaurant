@@ -60,9 +60,12 @@ public class PurchaseServiceImpl implements IPurchaseService {
     }
 
     @Override
-    public void deleteCartByCode(String code) {
-        Cart cart = cartRepository.findByCode(code).orElseThrow(() -> new ResourceNotFoundException("Cart", "Cart code", code));
-        cartRepository.deleteById(cart.getId());
+    public boolean deleteCartByCode(String code) {
+        boolean isDeleted = false;
+            Cart cart = cartRepository.findByCode(code).orElseThrow(() -> new ResourceNotFoundException("Cart", "Cart code", code));
+            isDeleted =true;
+            cartRepository.deleteById(cart.getId());
+      return isDeleted;
 
     }
 

@@ -11,7 +11,7 @@ public interface IPurchaseService {
 
      List<CartDto> getCartsByClientEmail(String email);
 
-     void deleteCartByCode(String code);
+     boolean deleteCartByCode(String code);
 
     void deleteClient(long id);
 }
