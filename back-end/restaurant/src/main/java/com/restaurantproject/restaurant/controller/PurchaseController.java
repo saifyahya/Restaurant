@@ -3,8 +3,6 @@ package com.restaurantproject.restaurant.controller;
 import com.restaurantproject.restaurant.dto.CartDto;
 import com.restaurantproject.restaurant.dto.PurchaseRequestDto;
 import com.restaurantproject.restaurant.dto.PurchaseResponseDto;
-import com.restaurantproject.restaurant.enums.CartStatusEnum;
-import com.restaurantproject.restaurant.model.Cart;
 import com.restaurantproject.restaurant.service.IPurchaseService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,23 +19,23 @@ public class PurchaseController {
     private IPurchaseService purchaseService;
 
     @PostMapping("/purchase")
-    public ResponseEntity<PurchaseResponseDto> savePurchaseRequest(@RequestBody PurchaseRequestDto purchaseRequest){
-        System.out.println("purchases"+purchaseRequest);
+    public ResponseEntity<PurchaseResponseDto> savePurchaseRequest(@RequestBody PurchaseRequestDto purchaseRequest) {
+        System.out.println("purchases" + purchaseRequest);
         CartDto cartDto = purchaseService.savePurchaseRequest(purchaseRequest);
         PurchaseResponseDto response = new PurchaseResponseDto();
-            response.setName(purchaseRequest.getClientDto().getFullName());
-            response.setStatus(cartDto.getStatus());
-            response.setCode(cartDto.getCode());
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
+        response.setName(purchaseRequest.getClientDto().getFullName());
+        response.setStatus(cartDto.getStatus());
+        response.setCode(cartDto.getCode());
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GetMapping("/purchase")
-    public List<CartDto> getCartsByClientEmail(@RequestParam String email){
-return purchaseService.getCartsByClientEmail(email);
+    public List<CartDto> getCartsByClientEmail(@RequestParam String email) {
+        return purchaseService.getCartsByClientEmail(email);
     }
 
     @DeleteMapping("/purchase")
-    public void DeletePurchaseInfo(@RequestParam String code){
-         purchaseService.deleteCartByCode(code);
+    public void DeletePurchaseInfo(@RequestParam String code) {
+        purchaseService.deleteCartByCode(code);
     }
 }

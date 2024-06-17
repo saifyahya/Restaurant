@@ -1,15 +1,10 @@
 package com.restaurantproject.restaurant.dto;
 
 import com.restaurantproject.restaurant.enums.CartStatusEnum;
-import com.restaurantproject.restaurant.enums.CatEnumConverter;
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,5 +20,4 @@ public class CartDto {
     private AddressDto toAddressDto;
     private AddressDto fromAddressDto;
     private Date updatedDate;
-
 }

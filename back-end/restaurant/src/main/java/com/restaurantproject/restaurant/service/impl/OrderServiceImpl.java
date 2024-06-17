@@ -18,6 +18,8 @@ public class OrderServiceImpl implements IOrderService {
 
     @Override
     public List<MyOrder> getAllOrders(int page, int size) {
+        if(page<0){page = 0; }
+        if(size<=0){size = 1; }
         Pageable pageable = PageRequest.of(page,size);
        List<MyOrder> orders =  orderRepository.findAll(pageable).getContent();   // find all always return list , either empty or has data
         return  orders;
@@ -25,12 +27,16 @@ public class OrderServiceImpl implements IOrderService {
 
     @Override
     public List<MyOrder> getOrdersByCategoryId(long id,int page, int size) {
+        if(page<0){page = 0; }
+        if(size<=0){size = 1; }
         Pageable pageable = PageRequest.of(page,size);
         return  orderRepository.findByCategoryId(id,pageable);
     }
 
     @Override
     public List<MyOrder> getOrdersByOrderNameContaining(String orderName,int page, int size) {
+        if(page<0){page = 0; }
+        if(size<=0){size = 1; }
         Pageable pageable = PageRequest.of(page,size);
         return orderRepository.findByOrderNameContaining(orderName,pageable);
     }
