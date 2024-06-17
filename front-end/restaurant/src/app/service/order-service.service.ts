@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Order } from '../model/order';
-import { HttpClient} from '@angular/common/http'; // Import HttpClient for making HTTP requests
-import { log } from 'console';
-import { response } from 'express';
+import { HttpClient, HttpEvent, HttpRequest} from '@angular/common/http'; // Import HttpClient for making HTTP requests
+
 
 
 @Injectable({
@@ -11,14 +10,21 @@ import { response } from 'express';
 })
 export class OrderServiceService {
   private baseUrl: string = "http://localhost:8087/api/";
-
+// getAllOrdersObs$=this.getAllOrders;
+// getOrdersByCatIdObs$=this.getOrderByCategoryId;
+// getOrdersContainNameObs$=this.getOrdersContainingName;
   constructor(private http:HttpClient) {
    }
 
-   getAllOrders( page: number |null, size: number |null):Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseUrl+"allOrders"+"?page="+page+"&size="+size).pipe(
-      map(response => response)
-    );
+   getAllOrders( page: number |null, size: number |null):Observable<HttpEvent<unknown>> {
+    const api = this.baseUrl+"allOrders"+"?page="+page+"&size="+size
+    const request = new HttpRequest(
+      "GET",api,{reportProgress:true}
+    )
+    return this.http.request(request);
+    // return this.http.get<Order[]>(this.baseUrl+"allOrders"+"?page="+page+"&size="+size).pipe(
+    //   map(response => response)
+    // );
    }
    getOrderByCategoryId(id: string | null, page: number |null, size: number |null):Observable<Order[]> {
     return this.http.get<Order[]>(this.baseUrl+"category?id="+id+"&page="+page+"&size="+size).pipe(

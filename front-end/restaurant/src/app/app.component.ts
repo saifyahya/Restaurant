@@ -8,7 +8,6 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './component/cart-status/cart-status.component';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
     selector: 'app-root',
     standalone: true,

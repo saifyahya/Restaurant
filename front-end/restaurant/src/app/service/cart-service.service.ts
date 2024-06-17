@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Cart } from '../model/cart';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,9 @@ orders:Cart[]=[];
 totalQuantity:Subject<number>=new Subject<number>;
 totalQuantityNumber:number=0;
 totalpriceNumber:number=0;
-
 totalPrice:Subject<number>=new Subject<number>;
-  constructor(private http:HttpClient) { }
-
+  
+constructor(private http:HttpClient) { }
   addToCart(cartOrder:Cart){
     let existingOrder= this.orders.find(order=>order.id===cartOrder.id);
     if(existingOrder!=undefined){
@@ -66,6 +64,10 @@ this.updateCart();
 
   getCart():Cart[]{
     return this.orders;
+  }
+  cleanCart():void{
+    this.orders=[];
+    this.updateCart();
   }
 
 }

@@ -1,61 +1,76 @@
-.buyingorder{
-    margin-left: 135px;
+.buyingorder {
+  margin-left: 135px;
+  margin-bottom: 20px; /* Added margin-bottom for spacing between cards */
 }
-span{
-    margin: 0 98px;
+span {
+  margin: 0 98px;
 }
-i
-{
-background-color: #149ddd;
-padding: 3px;
-color: white;
-cursor: pointer;
+i {
+  background-color: #149ddd;
+  padding: 3px;
+  color: white;
+  cursor: pointer;
 }
-.totprice{
-    position: absolute;
-    padding: 10px;
-    color: white;
-background-color: #149ddd;
-font-size: 20px;
+.totprice {
+  position: absolute;
+  padding: 10px;
+  color: white;
+  background-color: #149ddd;
+  font-size: 20px;
 }
-.tot2{
-    position: absolute;
-    right: 0;
-    padding: 10px;
-    color: white;
-background-color: #149ddd;
-font-size: 20px;
+.tot2 {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  color: white;
+  background-color: #149ddd;
+  font-size: 20px;
 }
 .checkout {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 20px;
-    width: 200px;
-  }
-  
-  .size {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .totalPrice {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+  position: fixed;  /* Fix the div at the bottom */
+  bottom: 0;        /* Align to the bottom of the page */
+  left: 50%;        /* Center horizontally */
+  transform: translateX(-50%);  /* Adjust to the center */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  z-index: 1000;    /* Ensure it is on top of other content */
+  margin-top: 20px; /* Remove if unnecessary */
+}
+.size {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.totalPrice {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.card.order-item {
+  margin-bottom: 20px; /* Space between cards */
+  height: 100%; /* Ensure card takes full height */
+  display: flex;
+  flex-direction: column; /* Ensure vertical layout */
+}
+.card img {
+  height: 200px; /* Fixed height for images */
+  width: 100%; /* Full width */
+  object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+.card h1, .card p, .card button {
+  margin: 10px 0; /* Add some margin to inner elements */
+}

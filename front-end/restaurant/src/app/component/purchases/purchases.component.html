@@ -1,24 +1,24 @@
-<div  class="row">
+<div class="row">
     <div *ngFor="let temp of cart" class="col-md-4 myorder buyingorder">
         <div class="card order-item">
-<div class="totprice">${{temp.price*temp.quantity}}</div>
-<div class="tot2">${{temp.price}}</div>
+            <div class="totprice">${{temp.price*temp.quantity}}</div>
+            <div class="tot2">${{temp.price}}</div>
 
-<img  style="width: 100%;" src="../../../assets/img/{{temp.image}}.jpg">
+            <img style="width: 100%;" src="../../../assets/img/{{temp.image}}.jpg">
 
-<h1>{{temp.name}}</h1>
-<p class="price"><i (click)="increaseOrders(temp)" class="fas fa-plus"></i><span>{{temp.quantity}}</span><i  (click)="decreaseOrders(temp)" class="fas fa-minus"></i></p>
-<button (click)="removeWholeOrder(temp)" class="btn btn-primary mybu">Remove</button>       
-</div>
-</div>
+            <h1>{{temp.name}}</h1>
+            <p class="price"><i (click)="increaseOrders(temp)" class="fas fa-plus"></i><span>{{temp.quantity}}</span><i
+                    (click)="decreaseOrders(temp)" class="fas fa-minus"></i></p>
+            <button (click)="removeWholeOrder(temp)" class="btn btn-primary mybu">Remove</button>
+        </div>
+    </div>
 </div>
 
 <div *ngIf="cart?.length==0" class="alert alert-danger">
     No Orders Found</div>
 
-    <div class="checkout">
-        <div class="size">Total orders:{{totalQuantity}}</div>
-            <div class="totalPrice">Total price:{{totalPrice}}</div>
-          
-        <button (click)="checkout()" *ngIf="cart.length>0" type="button" >Check out</button>
-    </div>
+<div class="checkout">
+    <div class="size">Total orders:{{totalQuantity}}</div>
+    <div class="totalPrice">Total price:{{totalPrice}}</div>
+    <button (click)="checkout()" *ngIf="cart.length>0" type="button">Check out</button>
+</div>
