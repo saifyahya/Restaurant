@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Observable, map } from 'rxjs';
 import { Cart } from '../model/cart';
 import { CartServiceService } from './cart-service.service';
+import { UserCart } from '../model/user-cart/user-cart';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,7 @@ export class CheckoutService {
 
   constructor(private http:HttpClient,private cartService:CartServiceService) { }
 orders:Cart[]=[];
-
-
-
   private baseUrl=  "http://localhost:8087/api/purchase";
-
-  
   stripId(orders:Cart){
     const{id,...res} = orders;
     return res;
@@ -35,13 +31,12 @@ this.orders=this.cartService.getCart();
      "toAddressDto": toAddress,
      "fromAddressDto":fromAddress
     };
-
-    console.log(payload)
+    console.log("request data: ",payload)
     return this.http.post<any>(this.baseUrl, payload);
   }
 
-fetchCarts():Observable<any>{
-  return this.http.get(`${this.baseUrl}?email=saifbarakat991@gmail.com`).pipe(map(data=>data));
+fetchCarts():Observable<UserCart[]>{
+  return this.http.get<UserCart[]>(`${this.baseUrl}?email=saifbarakat991@gmail.com`).pipe(map(data=>data));
 }
 
 

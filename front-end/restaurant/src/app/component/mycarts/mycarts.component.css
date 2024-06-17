@@ -1,55 +1,61 @@
 .mycarts-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Space between the cards */
-    justify-content: center; /* Center the cards horizontally */
-    padding: 10px; /* Add some padding around the container */
-  }
-  
-  .mycarts-card {
-    text-align: center;
-    width: 200px;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.2s; /* Smooth hover effect */
-    padding: 5px; /* Add padding inside the card */
-  }
-  
-  .mycarts-card:hover {
-    transform: translateY(-10px); /* Lift the card slightly on hover */
-  }
-  
-  .mycarts-card-title {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .mycarts-card-text {
-    font-size: 10px;
-    color: #555;
-  }
-  
-  .mycarts-btn-primary {
-    font-size: 10px;
-    padding: 5px 10px;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-  .mycarts-btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between the cards */
+  justify-content: center; /* Center the cards horizontally */
+  padding: 10px; /* Add some padding around the container */
+  perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.mycarts-card {
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: goldenrod;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.19); /* Enhanced shadow for 3D effect */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+  padding: 5px; /* Add padding inside the card */
+  transform: rotateX(0deg) rotateY(0deg); /* Initial state for 3D effect */
+}
+
+.mycarts-card:hover {
+  transform: rotateX(-10deg) rotateY(10deg); /* Tilt the card on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 20px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.mycarts-card-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.mycarts-card-text {
+  font-size: 10px;
+  color: #555;
+}
+
+.mycarts-btn-primary {
+  font-size: 10px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.mycarts-btn-primary:hover {
+  background-color: #0056b3;
+}
+.cart-delete-button{
+  background-color: black;
+  color: white;
+}

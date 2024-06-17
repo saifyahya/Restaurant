@@ -3,34 +3,43 @@ import { CheckoutService } from '../../service/checkout.service';
 import { UserItems } from '../../model/user-items/user-items';
 import { UserAddress } from '../../model/user-address/user-address';
 import { CommonModule } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { UserCart } from '../../model/user-cart/user-cart';
 
 @Component({
   selector: 'app-mycarts',
   standalone: true,
-  encapsulation: ViewEncapsulation.ShadowDom, // Add this line
-
   imports: [CommonModule],
   templateUrl: './mycarts.component.html',
   styleUrl: './mycarts.component.css'
 })
-export class MycartsComponent implements OnInit{
-userCart:any[]=[];
-userItems:UserItems[]=[];
-toAddressCart:UserAddress;
-fromAddressCart:UserAddress;
-
-
-
+export class MycartsComponent implements OnInit {
+  userCart: UserCart[] = [];
+  userItems: UserItems[] = [];
+  toAddressCart: UserAddress;
+  fromAddressCart: UserAddress;
   ngOnInit(): void {
-      this.getMyCarts()
+    this.getMyCarts()
   }
-  constructor(private checkoutService:CheckoutService){
+  constructor(private checkoutService: CheckoutService) {
   }
 
-  getMyCarts(){
-    this.checkoutService.fetchCarts().subscribe(data=>{this.userCart=data
-      console.log(this.userCart)
-    });
+  getMyCarts() {
+    this.checkoutService.fetchCarts().subscribe({
+      next: data => {
+        this.userCart = data;
+        console.dir(this.userCart);
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.userCart = [];
+          console.log('No carts found:', error.error);
+        } else {
+          console.error('Error fetching carts:', error.message);
+        }
+      }
+    }
+    );
   }
 
   deleteCart(cartCode: string): void {
@@ -38,10 +47,15 @@ fromAddressCart:UserAddress;
       this.checkoutService.deleteCartByCode(cartCode).subscribe({
         next: data => {
           console.log(data);
-          this.getMyCarts(); 
+          this.getMyCarts();
+        },
+        complete: () => {
+          console.log("Cart deletion completed")
         },
         error: error => {
           console.error('Error deleting cart:', error);
+
+
         }
       });
     }

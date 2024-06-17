@@ -3,7 +3,7 @@
         <span class="mr-2" style="color: white;"> Categories
         </span>
         <select (change)="categoryDropdown($event)">
-        <option *ngFor="let temp of categories" value="{{temp.id}}">{{temp.categoryName}}</option>
+        <option *ngFor="let temp of categoriesSub$|async" value="{{temp.id}}">{{temp.categoryName}}</option>
         </select>
         </div>
 

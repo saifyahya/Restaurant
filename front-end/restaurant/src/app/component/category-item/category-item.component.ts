@@ -14,22 +14,23 @@ import { error } from 'node:console';
 })
 export class CategoryItemComponent implements OnInit{
  categoryArr: Category[] =[];
+ getAllCatSub$= this.service.allCategoriesObservable$;
 constructor(private service: CategoryServiceService){}
   ngOnInit(): void {
-      this.geAllCat();
+    //  this.geAllCat();
   }
 
-  geAllCat():void {
-this.service.getAllCategories().subscribe(
+//   geAllCat():void {
+// this.service.allCategoriesObservable$.subscribe(
   
-  data=>{this.categoryArr=data
-// data.forEach(data=>console.log(data))
+//   data=>{this.categoryArr=data
+// // data.forEach(data=>console.log(data))
 
-  },
-error=>{
-console.log("error in fetching the categpries",error)
-}
-);
-  }
+//   },
+// error=>{
+// console.log("error in fetching the catego ries",error)
+// }
+// );
+//   }
 
 }

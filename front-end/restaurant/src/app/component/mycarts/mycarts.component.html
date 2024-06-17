@@ -3,18 +3,16 @@
   <div *ngFor="let cart of userCart" class="mycarts-card">
     <div class="card-body">
       <p class="mycarts-card-text">
-        Order date: {{ cart.updatedDate.split('T')[0] }} -
-        <span>{{ cart.updatedDate.split('T')[1].split('+')[0].split('.')[0] }}</span>
+        <i  class="fa-solid fa-bag-shopping fa-2x" style="color: white;"></i>
+        Order date: {{ cart.updatedDate | date}}
       </p>
       <h5 class="mycarts-card-title">Status: {{ cart.status }}</h5>
       <p class="mycarts-card-text">Code: {{ cart.code }}</p>
       <p class="mycarts-card-text">Items: {{ cart.quantity }}</p>
       <p class="mycarts-card-text">Price: {{ cart.price }}</p>
-      <button (click)="deleteCart(cart.code)">Delete</button>
+      <button (click)="deleteCart(cart.code)" class="cart-delete-button">Delete</button>
     </div>
   </div>
 </div>
 <div *ngIf="userCart?.length==0" class="alert alert-danger">
   No Carts Found</div>
-
-

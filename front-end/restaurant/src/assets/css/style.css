@@ -235,11 +235,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 56px;
 }
 
-#hero p {
+/* #hero p {
   margin-bottom: 50px;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
-}
+} */
 
 #hero p span {
   padding-bottom: 4px;
@@ -1132,12 +1132,12 @@ section {
   line-height: 56px;
   font-family: cursive;
 }
-#hero p {
+/* #hero p {
   margin-bottom: 13px;
   font-size: 30px;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-}
+} */
 .mynav
 {
   height: 63px;

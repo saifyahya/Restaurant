@@ -63,14 +63,15 @@ get phoneNumber(){
     }
   
   done(){
-    if(this.checkoutParentGroup.controls['dataForm'].dirty && this.checkoutParentGroup.controls['dataForm'].valid)
+  if(this.checkoutParentGroup.controls['dataForm'].dirty && this.checkoutParentGroup.controls['dataForm'].valid)
       {
   this.checkOutService.checkout(this.checkoutParentGroup.get("dataForm").value,
   this.checkoutParentGroup.get("fromPersonForm").value,
   this.checkoutParentGroup.get("toPersonForm").value,this.totalQuantity,this.totalPrice
 ).subscribe({
   next: response=>{console.log(response);
-    this.router.navigateByUrl('/mycarts')
+    this.router.navigateByUrl('/mycarts');
+    this.cartServices.cleanCart();
   },
   error:error=>{console.log("error in your request" , error)}
 });

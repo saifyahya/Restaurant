@@ -15,16 +15,15 @@ import { ActivatedRoute, Router, RouterLink,RouterLinkActive } from '@angular/ro
 export class DropdownMenueComponent implements OnInit{
 categories: Category[]=[];
 constructor(private service:CategoryServiceService, private router:Router){}
+categoriesSub$ = this.service.allCategoriesObservable$;
   ngOnInit(): void {
-      this.getAllCategories();
-      
-
+  //    this.getAllCategories();
   }
 
-  getAllCategories(): void{
-this.service.getAllCategories().subscribe(
-  data=>this.categories=data);
-  }
+//   getAllCategories(): void{
+// this.service.allCategoriesObservable$.subscribe(
+//   data=>this.categories=data);
+//   }
   categoryDropdown(event :Event){
     let category_id = (<HTMLSelectElement>event.target).value;
 this.router.navigateByUrl(`/category/id/${category_id}`)

@@ -72,4 +72,16 @@ select {
   button:hover {
     background-color: #0056b3;
   }
+
+  .checkout {
+
+    left: 50%;        /* Center horizontally */
+    transform: translateX(-50%);  /* Adjust to the center */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 200px;
+}
   
